@@ -44,13 +44,12 @@ const Header = ({ type }) => {
   // Navigates to "/hotels" and takes the state data {destination, date, options} to that page
   const handleSearch = () => {
     navigate("/hotels", {state:{destination, date, options}})
-
   }
   return (
     <div className="header">
       <div className={(type === "list")?"headerContainer listMode":"headerContainer"}>
         <div className="headerList">
-          <div className="headerListItem">
+          <div className="headerListItem active">
             <FontAwesomeIcon icon={faBed} />
             <span>Stays</span>
           </div>
@@ -109,6 +108,7 @@ const Header = ({ type }) => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     className="date"
+                    minDate={new Date()}
                   />
                 )}
               </div>
